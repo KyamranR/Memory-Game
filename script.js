@@ -118,7 +118,7 @@ function endGame(counts){
   alert('You Won!');
   resetGame();
   const bestScored = localStorage.getItem('bestScore');
-  if(counts < bestScored){
+  if(bestScored === null || counts < bestScored){
     localStorage.setItem('bestScore', counts);
   }
   bestScore();
@@ -127,7 +127,7 @@ function endGame(counts){
 
 function bestScore(){
   const bestScored = localStorage.getItem('bestScore');
-  console.log(bestScored);
+  // console.log(bestScored);
   if(bestScored !== null){
     const score = document.getElementById('best-score-display');
     score.textContent =  `Best Score: ${bestScored}`;
